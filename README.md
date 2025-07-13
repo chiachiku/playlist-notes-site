@@ -1,3 +1,13 @@
+# playlist-notes-site
+
+簡易的歌單筆記網頁，首頁列出常用音響設備與使用情境，並能新增歌曲或專輯記錄聆聽心得、評分與標籤。資料會儲存在瀏覽器 `localStorage` 中。
+
+## 使用方式
+
+1. 於瀏覽器開啟 `index.html` 即可使用。
+2. 填寫表單後按「加入」，歌曲條目會顯示在下方清單，可隨時刪除。
+
+頁面與腳本皆為純前端實作，無需額外伺服器。
 # Playlist Notes Site
 
 This project is a simple static web page for keeping track of favorite playlists with notes, ratings, and tags. It also contains background information about the audio gear used in the system.

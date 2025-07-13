@@ -1,54 +1,49 @@
-const container = document.getElementById('playlist-container');
-const form = document.getElementById('playlist-form');
-const nameInput = document.getElementById('name');
-const noteInput = document.getElementById('notes');
-const tagInput = document.getElementById('tags');
-const ratingInput = document.getElementById('rating');
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('add-form');
+  const container = document.getElementById('playlist-container');
 
-function savePlaylists(list) {
-  localStorage.setItem('playlists', JSON.stringify(list));
-}
+  const load = () => JSON.parse(localStorage.getItem('playlist') || '[]');
+  const save = (list) => localStorage.setItem('playlist', JSON.stringify(list));
 
-function loadPlaylists() {
-  const stored = localStorage.getItem('playlists');
-  return stored ? JSON.parse(stored) : [];
-}
+  let playlist = load();
 
-function render() {
-  container.innerHTML = '';
-  playlists.forEach((p, index) => {
-    const div = document.createElement('div');
-    div.className = 'playlist-item';
-    div.innerHTML = `
-      <strong>${p.name}</strong>
-      <span class="rating">${'★'.repeat(p.rating)}</span>
-      <div>${p.notes}</div>
-      <div>${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-      <button data-index="${index}">Delete</button>
-    `;
-    div.querySelector('button').addEventListener('click', e => {
-      const i = parseInt(e.target.dataset.index, 10);
-      playlists.splice(i, 1);
-      savePlaylists(playlists);
-      render();
+  const render = () => {
+    container.innerHTML = '';
+    playlist.forEach((item, index) => {
+      const div = document.createElement('div');
+      div.className = 'playlist-item';
+      div.innerHTML = `
+        <h3>${item.title} - ${item.artist}</h3>
+        <div class="rating">${'★'.repeat(item.rating)}${'☆'.repeat(5 - item.rating)}</div>
+        <div class="tags">${item.tags.map(t => '#' + t).join(' ')}</div>
+        <p class="notes">${item.notes}</p>
+      `;
+      const del = document.createElement('button');
+      del.textContent = '刪除';
+      del.addEventListener('click', () => {
+        playlist.splice(index, 1);
+        save(playlist);
+        render();
+      });
+      div.appendChild(del);
+      container.appendChild(div);
     });
-    container.appendChild(div);
-  });
-}
+  };
 
-const playlists = loadPlaylists();
-render();
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const title = form.title.value.trim();
+    const artist = form.artist.value.trim();
+    const rating = parseInt(form.rating.value, 10) || 0;
+    const tags = form.tags.value.split(',').map(t => t.trim()).filter(t => t);
+    const notes = form.notes.value.trim();
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  const tags = tagInput.value.split(',').map(t => t.trim()).filter(Boolean);
-  playlists.push({
-    name: nameInput.value,
-    notes: noteInput.value,
-    rating: parseInt(ratingInput.value, 10) || 0,
-    tags
+    if (!title) return;
+
+    playlist.push({ title, artist, rating, tags, notes });
+    save(playlist);
+    form.reset();
+    render();
   });
-  savePlaylists(playlists);
-  form.reset();
   render();
 });
