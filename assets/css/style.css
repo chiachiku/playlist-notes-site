@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 1rem;
+  background-color: #fdfdfd;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+.gear-list {
+  list-style: none;
+  padding: 0;
+}
+
+.gear-item {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.gear-item h4 {
+  margin: 0 0 0.5rem;
+}
+
+form {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+}
+
+form input,
+form textarea,
+form button {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.playlist-item {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+
+.playlist-item h3 {
+  margin-top: 0;
+}
+
+.tags {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.rating {
+  color: #e7a800;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.notes {
+  white-space: pre-wrap;
+}
+
+@media (min-width: 600px) {
+  body {
+    margin: 2rem auto;
+    max-width: 800px;
+  }
+}

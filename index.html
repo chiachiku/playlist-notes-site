@@ -7,7 +7,84 @@
   <script defer src="assets/js/main.js"></script>
 </head>
 <body>
-  <h1>🎧 我的歌單筆記</h1>
-  <div id="playlist-container"></div>
+  <h1>🎧 我的音響設備與歌單</h1>
+
+  <section id="gear">
+    <h2>我的設備</h2>
+
+    <h3>耳機／耳塞</h3>
+    <ul class="gear-list">
+      <li class="gear-item">
+        <h4>STAX SR-L700 MK II</h4>
+        <p>日本 STAX「Lambda」系統次旗艦，搭配 SRM-500T 能帶來絲質高頻與細膩層次。</p>
+      </li>
+      <li class="gear-item">
+        <h4>Sennheiser HD 820</h4>
+        <p>玻璃反射腔封閉式設計，與 HDV 820 全平衡驅動時能展現寬闊音場。</p>
+      </li>
+      <li class="gear-item">
+        <h4>Meze 109 Pro</h4>
+        <p>手工木質開放動圈，與 RU9 搭配可獲得溫暖厚實的聲底。</p>
+      </li>
+      <li class="gear-item">
+        <h4>Sennheiser IE 900</h4>
+        <p>單動圈 IEM，高頻延伸順滑；接上 RU9 Modern Tube 模式尤佳。</p>
+      </li>
+      <li class="gear-item">
+        <h4>Sony IER-Z1R</h4>
+        <p>三動圈混合 IEM，低頻氣勢澎湃，與 ZX707 組成全 Sony 聆聽體驗。</p>
+      </li>
+    </ul>
+
+    <h3>耳機驅動器 &amp; 桌面 DAC</h3>
+    <ul class="gear-list">
+      <li class="gear-item">
+        <h4>STAX SRM-500T</h4>
+        <p>FET+真空管混合放大，賦予 STAX 耳機溫潤音色。</p>
+      </li>
+      <li class="gear-item">
+        <h4>Sennheiser HDV 820</h4>
+        <p>AK4490EQ 雙 DAC，全平衡輸出推力強勁。</p>
+      </li>
+      <li class="gear-item">
+        <h4>iFi Zen DAC V3</h4>
+        <p>USB-C 供電傳輸，X-Bass / X-Space 開關增添趣味。</p>
+      </li>
+    </ul>
+
+    <h3>隨身訊源 &amp; 便攜 DAC</h3>
+    <ul class="gear-list">
+      <li class="gear-item">
+        <h4>Sony NW-ZX707</h4>
+        <p>Android Walkman，支援 4.4 mm 平衡輸出與 USB-DAC 模式。</p>
+      </li>
+      <li class="gear-item">
+        <h4>Cayin RU9</h4>
+        <p>雙 AK4493SEQ DAC，藍牙與 USB 皆可連接 iPhone。</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="tips">
+    <h2>使用情境</h2>
+    <ul>
+      <li>RU9 有線聆聽建議先以 Solid State 模式參考，再切換 Tube 體驗。</li>
+      <li>耳機線盡量升級為 4.4 mm 平衡端子，以便在各設備間共享。</li>
+      <li>室內深夜：SR-L700 MK II 搭 SRM-500T；通勤則 IE 900 搭 RU9（BT）。</li>
+    </ul>
+  </section>
+
+  <section id="playlist">
+    <h2>歌單筆記</h2>
+    <form id="add-form">
+      <input type="text" name="title" placeholder="歌曲 / 專輯名稱" required>
+      <input type="text" name="artist" placeholder="演出者">
+      <input type="number" name="rating" min="0" max="5" placeholder="評分 (0-5)">
+      <input type="text" name="tags" placeholder="標籤 (以逗號分隔)">
+      <textarea name="notes" rows="3" placeholder="聆聽建議與心得"></textarea>
+      <button type="submit">加入</button>
+    </form>
+    <div id="playlist-container"></div>
+  </section>
 </body>
 </html>
