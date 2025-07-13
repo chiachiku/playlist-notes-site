@@ -8,6 +8,9 @@
 2. 填寫表單後按「加入」，歌曲條目會顯示在下方清單，可隨時刪除。
 
 頁面與腳本皆為純前端實作，無需額外伺服器。
+# Playlist Notes Site
+
+This project is a simple static web page for keeping track of favorite playlists with notes, ratings, and tags. It also contains background information about the audio gear used in the system.
 
 ## Equipment Overview
 

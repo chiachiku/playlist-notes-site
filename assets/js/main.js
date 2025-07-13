@@ -45,6 +45,5 @@ document.addEventListener('DOMContentLoaded', () => {
     form.reset();
     render();
   });
-
   render();
 });
