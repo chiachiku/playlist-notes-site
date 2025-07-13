@@ -8,6 +8,13 @@
 </head>
 <body>
   <h1>🎧 我的歌單筆記</h1>
+  <form id="playlist-form">
+    <input id="name" placeholder="歌單名稱" required>
+    <input id="rating" type="number" min="1" max="5" placeholder="1-5 分">
+    <input id="tags" placeholder="標籤，以逗號分隔">
+    <textarea id="notes" placeholder="聆聽建議或心得"></textarea>
+    <button type="submit">新增</button>
+  </form>
   <div id="playlist-container"></div>
 </body>
 </html>
