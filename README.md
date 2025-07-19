@@ -1,12 +1,14 @@
 # playlist-notes-site
 
-展示個人音響設備與搭配心得的靜態網頁，依器材類型整理特色與使用建議。
+提供個人長期評測的音響設備清單，按類型歸納聲音特色與搭配心得。
 
 ## 使用方式
 
-1. 於瀏覽器開啟 `index.html` 即可瀏覽。
+1. 直接開啟 `index.html` 即可瀏覽，無需伺服器。
 
-頁面為純前端實作，無需額外伺服器。
+本頁為純前端設計，無須額外後端服務。
+
+
 # Playlist Notes Site
 
 This project is a simple static web page showcasing personal audio gear and usage tips. All content is static and requires no backend.
