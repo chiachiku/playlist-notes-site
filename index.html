@@ -10,7 +10,12 @@
 
   <p class="intro">此頁面依器材類別彙整長期評測心得，簡介各產品設計理念與聲音特性，供音響同好參考。</p>
 
-  <section id="gear">
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="gear">我的設備</button>
+    <button class="tab-btn" data-tab="playlist">歌曲推薦</button>
+  </nav>
+
+  <section id="gear" class="tab-panel active">
     <h2>我的設備</h2>
 
     <h3>耳機／耳塞</h3>
@@ -58,14 +63,14 @@
         <div>
           <img src="https://stax-international.com/wp-content/uploads/2021/03/SRM-500T_main.jpg" alt="STAX SRM-500T" />
           <h4>STAX SRM-500T</h4>
-          <p>FET 與 6FQ7 真空管混合放大，輸出 300 V RMS，可為 STAX 耳機帶來溫厚音色。</p>
+          <p>FET 與 6FQ7 真空管混合放大，輸出 300 V RMS，可為 STAX 耳機帶來溫厚音色。</p>
         </div>
       </li>
       <li class="gear-item">
         <div>
           <img src="https://global.sennheiser-hearing.com/cdn/shop/products/product_detail_x2_desktop_HDV-820_1_Sennheiser_1200x1200.jpg?v=1594733005" alt="Sennheiser HDV 820" />
           <h4>Sennheiser HDV 820</h4>
-          <p>內建雙 AK4490EQ DAC，最高支援 PCM 384 kHz 與 DSD256，提供充沛的全平衡輸出能力。</p>
+          <p>內建雙 AK4490EQ DAC，最高支援 PCM 384 kHz 與 DSD256，提供充沛的全平衡輸出能力。</p>
         </div>
       </li>
       <li class="gear-item">
@@ -83,7 +88,7 @@
         <div>
           <img src="https://fillion.ca/cdn/shop/products/Product15.jpg?v=1674852261" alt="Sony NW-ZX707" />
           <h4>Sony NW-ZX707</h4>
-          <p>搭載 Android 12 與 S‑Master HX 放大，提供 4.4 mm 平衡輸出及 USB DAC 功能，適合高解析串流。</p>
+          <p>搭載 Android 12 與 S‑Master HX 放大，提供 4.4 mm 平衡輸出及 USB DAC 功能，適合高解析串流。</p>
         </div>
       </li>
       <li class="gear-item">
@@ -94,16 +99,36 @@
         </div>
       </li>
     </ul>
-  </section>
 
-  <section id="tips">
-    <h2>使用情境</h2>
-    <ul>
+    <h3>使用情境</h3>
+    <ul class="tips-list">
       <li>RU9 有線輸出建議先以 Solid State 模式作為基準，再依喜好切換兩種 Tube 風格。</li>
-      <li>耳機線若升級為 4.4 mm 平衡端子，可在 RU9、HDV 820 與 ZX707 間自由切換。</li>
+      <li>耳機線若升級為 4.4 mm 平衡端子，可在 RU9、HDV 820 與 ZX707 間自由切換。</li>
       <li>室內深夜建議 SR-L700 MK II 搭 SRM-500T；通勤可選 IE 900 配 RU9 藍牙模式。</li>
     </ul>
   </section>
+
+  <section id="playlist" class="tab-panel">
+    <h2>歌曲推薦</h2>
+    <p class="section-intro">記錄不同歌曲適合的設備組合，依曲風與聆聽情境推薦搭配。</p>
+
+    <div class="playlist-item">
+      <h4>範例：Bohemian Rhapsody - Queen</h4>
+      <p class="song-meta">曲風：搖滾 ｜ 推薦設備：IER-Z1R + ZX707</p>
+      <p>這首經典搖滾需要強勁的低頻與寬闘的音場，IER-Z1R 的三單體結構能完美呈現歌曲的層次感與動態。</p>
+    </div>
+
+    <div class="playlist-item">
+      <h4>範例：Nessun Dorma - Luciano Pavarotti</h4>
+      <p class="song-meta">曲風：古典／歌劇 ｜ 推薦設備：SR-L700 MK II + SRM-500T</p>
+      <p>歌劇人聲需要極致的細膩度與空間感，靜電耳機的高頻延伸與真空管的溫潤音色是絕佳選擇。</p>
+    </div>
+
+    <div class="playlist-item add-new">
+      <p>＋ 未來可在此新增更多歌曲推薦...</p>
+    </div>
+  </section>
+
   <div id="image-preview"><img src="" alt="preview"></div>
   <script src="assets/js/main.js"></script>
 </body>
