@@ -1,30 +1,49 @@
+/* ===== 基礎樣式 ===== */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  margin: 1.5rem;
-  background-color: #f5f5f5;
-  color: #333;
-  line-height: 1.6;
-  font-size: 1.125rem;
+  font-family: "Segoe UI", "Helvetica Neue", "Noto Sans TC", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  color: #e8e8e8;
+  line-height: 1.7;
+  font-size: 1.05rem;
 }
 
-h1 {
+/* ===== Hero 區塊 ===== */
+.hero {
   text-align: center;
-  margin-bottom: 0.5rem;
-  color: #222;
-  font-size: 2rem;
+  padding: 3rem 1.5rem 2rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 100%);
 }
 
-.intro {
-  text-align: center;
-  margin-bottom: 1.5rem;
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* Tab Navigation */
+.hero .subtitle {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== Tab Navigation ===== */
 .tab-nav {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
   padding-bottom: 0;
 }
 
@@ -33,7 +52,7 @@ h1 {
   border: none;
   background: transparent;
   font-size: 1.1rem;
-  color: #666;
+  color: rgba(255,255,255,0.6);
   cursor: pointer;
   border-bottom: 3px solid transparent;
   margin-bottom: -2px;
@@ -41,16 +60,16 @@ h1 {
 }
 
 .tab-btn:hover {
-  color: #333;
+  color: rgba(255,255,255,0.9);
 }
 
 .tab-btn.active {
-  color: #222;
-  border-bottom-color: #444;
+  color: #fff;
+  border-bottom-color: #fff;
   font-weight: 600;
 }
 
-/* Tab Panels */
+/* ===== Tab Panels ===== */
 .tab-panel {
   display: none;
 }
@@ -59,110 +78,260 @@ h1 {
   display: block;
 }
 
-h2,
-h3,
-h4 {
-  color: #444;
-  margin-top: 0;
+/* ===== 主要內容區 ===== */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
 }
 
-h2 {
+/* ===== 分類區塊 ===== */
+section {
+  margin-bottom: 2.5rem;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.category-header h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: #fff;
+  font-weight: 600;
+}
+
+.category-icon {
   font-size: 1.5rem;
 }
 
-h3 {
-  font-size: 1.3rem;
-}
-
-h4 {
-  font-size: 1.2rem;
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
+/* ===== 器材網格 ===== */
 .gear-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
 }
 
+@media (min-width: 640px) {
+  .gear-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .gear-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== 器材卡片 ===== */
 .gear-item {
-  display: block;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background-color: #fff;
-  border-radius: 6px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.gear-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  background: rgba(255,255,255,0.12);
+}
+
+.gear-item .image-container {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: rgba(0,0,0,0.2);
+  cursor: pointer;
 }
 
 .gear-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
-  display: block;
-  margin-bottom: 0.5rem;
-  border-radius: 4px;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.gear-item:hover img {
+  transform: scale(1.05);
+}
+
+.gear-item .content {
+  padding: 1rem 1.25rem 1.25rem;
 }
 
 .gear-item h4 {
   margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 600;
 }
 
-@media (min-width: 600px) {
-  body {
-    margin: 2rem auto;
-    max-width: 800px;
-  }
+.gear-item p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
 }
 
+/* ===== 使用情境區塊 ===== */
+#tips {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+#tips h2 {
+  margin: 0 0 1rem;
+  color: #fff;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#tips ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+#tips li {
+  margin-bottom: 0.75rem;
+  color: rgba(255,255,255,0.8);
+}
+
+#tips li:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 圖片預覽 Lightbox ===== */
 #image-preview {
   position: fixed;
-  top: 1rem;
-  right: 1rem;
-  width: 300px;
-  height: 300px;
-  background: #fff;
-  border: 2px solid #ccc;
-  border-radius: 6px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
   display: none;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
+  cursor: zoom-out;
+  backdrop-filter: blur(10px);
+}
+
+#image-preview.active {
+  display: flex;
 }
 
 #image-preview img {
-  width: 100%;
-  height: 100%;
+  max-width: 90%;
+  max-height: 90%;
   object-fit: contain;
-  border-radius: 4px;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 
-/* Playlist Section */
+#image-preview .close-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+}
+
+/* ===== 響應式調整 ===== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 0 1rem 2rem;
+  }
+
+  .gear-item .content {
+    padding: 0.875rem 1rem 1rem;
+  }
+
+  .tab-nav {
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* ===== 頁尾 ===== */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== Playlist Section ===== */
+#playlist h2 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
 .section-intro {
-  color: #666;
+  color: rgba(255,255,255,0.7);
   margin-bottom: 1.5rem;
 }
 
 .playlist-item {
-  border: 1px solid #ccc;
-  padding: 1rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 1.25rem;
   margin-bottom: 1rem;
-  background-color: #fff;
-  border-radius: 6px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 }
 
 .playlist-item h4 {
   margin: 0 0 0.5rem;
-  color: #333;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.playlist-item p {
+  color: rgba(255,255,255,0.7);
+  margin: 0;
 }
 
 .song-meta {
   font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  background: #f0f0f0;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255,255,255,0.1);
   border-radius: 4px;
   display: inline-block;
 }
@@ -170,18 +339,10 @@ section {
 .playlist-item.add-new {
   border-style: dashed;
   text-align: center;
-  color: #888;
+  color: rgba(255,255,255,0.5);
 }
 
 .playlist-item.add-new p {
   margin: 0;
-}
-
-/* Tips List */
-.tips-list {
-  padding-left: 1.5rem;
-}
-
-.tips-list li {
-  margin-bottom: 0.5rem;
+  color: rgba(255,255,255,0.5);
 }
